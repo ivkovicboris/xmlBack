@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.BLL\\RentACar.BLL.csproj": {}
+    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.BLL\\RentACar.BLL.csproj": {
+    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.BLL\\RentACar.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj",
         "projectName": "RentACar.BLL",
-        "projectPath": "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.BLL\\RentACar.BLL.csproj",
+        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.BLL\\obj\\",
+        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -23,15 +23,19 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp2.2"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
-            "projectReferences": {}
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
+                "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -41,7 +45,23 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.7.2-preview-10803222715, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -52,11 +72,76 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
+        "projectName": "RentACar.DAL",
+        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
+        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.NETCore.App": {
-              "privateAssets": "all"
+              "target": "Package",
+              "version": "[2.2.0, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }

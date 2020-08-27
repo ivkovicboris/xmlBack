@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.DAL\\RentACar.DAL.csproj": {}
+    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.DAL\\RentACar.DAL.csproj": {
+    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.DAL\\RentACar.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
         "projectName": "RentACar.DAL",
-        "projectPath": "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.DAL\\RentACar.DAL.csproj",
+        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
         "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\source\\repos\\RentACar\\RentACar.DAL\\obj\\",
+        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -23,14 +23,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp2.2"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp2.2": {
             "projectReferences": {}
           }
         },
@@ -41,7 +41,25 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -52,11 +70,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
