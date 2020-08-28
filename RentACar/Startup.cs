@@ -73,6 +73,8 @@ namespace RentACar
             services.AddScoped<IRepository<ModelOfCar>, Repository<ModelOfCar>>();
             services.AddScoped<IRepository<FuelType>, Repository<FuelType>>();
             services.AddScoped<IRepository<Ad>, Repository<Ad>>();
+            services.AddScoped<IRepository<AdRequest>, Repository<AdRequest>>();
+            services.AddScoped<IRepository<AdAdRequest>, Repository<AdAdRequest>>();
 
             services.AddCors();
             services.AddMvc().AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore);

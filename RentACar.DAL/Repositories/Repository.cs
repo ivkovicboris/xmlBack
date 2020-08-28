@@ -4,6 +4,7 @@ using RentACar.DAL.Repositories.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -54,9 +55,9 @@ namespace RentACar.DAL.Repositories
             return true;
         }
 
-        public IEnumerable<E> Find(Func<E, bool> predicate)
+        public async Task<IEnumerable<E>> Find(Expression<Func<E, bool>> predicate)
         {
-            return _dbSet.Where(predicate);
+            return await _dbSet.Where(predicate).ToListAsync();
 
         }
 

@@ -18,6 +18,8 @@ namespace RentACar.DAL.Context
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarBrand> CarBrands { get; set; }
         public DbSet<Ad> Ads { get; set; }
+        public DbSet<AdRequest> AdRequests { get; set; }
+        public DbSet<AdAdRequest> AdAdRequests { get; set; }
 
         public RentContext(DbContextOptions<RentContext> options) : base(options)
         {
@@ -26,6 +28,16 @@ namespace RentACar.DAL.Context
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<AdAdRequest>()
+                .HasKey(ar => new { ar.AdId, ar.AdRequestId });
+            builder.Entity<AdAdRequest>()
+                .HasOne(ar => ar.Ad)
+                .WithMany(a => a.AdAdRequests)
+                .HasForeignKey(ar => ar.AdId);
+            builder.Entity<AdAdRequest>()
+                .HasOne(ar => ar.AdRequest)
+                .WithMany(r => r.AdAdRequests)
+                .HasForeignKey(ar => ar.AdRequestId);
             base.OnModelCreating(builder);
         }
     }

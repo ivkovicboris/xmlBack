@@ -55,6 +55,18 @@ namespace RentACar.API.Controllers
             return false;
         }
 
+        [HttpPost]
+        [Route("AddAdRequest")]
+        public async Task<bool> AddAdRequest([FromBody] AdRequestModel adRequest)
+        {
+            var result = await _adContract.AddAdRequest(_mapper.Map<AdRequestModel, AdRequestPOCO>(adRequest));
+            if (result)
+            {
+                return true;
+            }
+            return false;
+        }
+
         [HttpGet]
         [Route("GetAllAdsByUserId/{userId}")]
         public async Task<object> GetAllAdsByUserId([FromRoute] string userId)

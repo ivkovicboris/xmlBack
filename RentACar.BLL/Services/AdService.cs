@@ -20,17 +20,23 @@ namespace RentACar.BLL.Services
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly DbSet<Ad> _ads;
+        private readonly IRepository<AdRequest> _adRequestRepository;
+        private readonly IRepository<AdAdRequest> _adAdRequestRepository;
         private readonly DbSet<Car> _cars;
         private readonly RentContext _context;
 
 
         public AdService(IRepository<Ad> adRepository,
+                 IRepository<AdRequest> adRequestRepository,
+                 IRepository<AdAdRequest> adAdRequestRepository,
                  UserManager<User> userManager,
                  IMapper mapper,
                  RentContext context
             )
         {
             _adRepository = adRepository;
+            _adRequestRepository = adRequestRepository;
+            _adAdRequestRepository = adAdRequestRepository;
             _userManager = userManager;
             _mapper = mapper;
             _context = context;
@@ -46,6 +52,74 @@ namespace RentACar.BLL.Services
                 adPOCO.Id = Guid.NewGuid();
                 Ad newAd = _mapper.Map<AdPOCO, Ad>(adPOCO);
                 await _adRepository.Create(newAd);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return true;
+        }
+
+        public async Task<bool> AddAdRequest(AdRequestPOCO adRequestPOCO)
+        {
+            try
+            {
+                // add addrequest
+                adRequestPOCO.Id = Guid.NewGuid();
+                AdRequest newAdRequest = _mapper.Map<AdRequestPOCO, AdRequest>(adRequestPOCO);
+                newAdRequest.AdAdRequests = null;
+                await _adRequestRepository.Create(newAdRequest);
+
+                //addad
+                var listadad = new List<AdAdRequest>();
+                var listofAds = new List<Ad>();
+                
+                var listofadaddrequest = adRequestPOCO.AdAdRequests.ToList();
+                foreach (var adad in listofadaddrequest)
+                {
+                    var a = await _adRepository.Find(y => y.Id.Equals(adad.AdId));
+                    a.FirstOrDefault();
+                    listofAds.Add(a.FirstOrDefault());
+
+                }
+               // listofadaddrequest.ForEach(async x =>
+                //{
+                //    var entity = await _adRepository.Find(y => y.Id.Equals(x.AdId));
+                //    var a = entity;
+                //    listofAds.Add(entity.FirstOrDefault());
+                //});
+                listofAds.ForEach(x =>
+                {
+                    listadad.Add(new AdAdRequest()
+                    {
+                        Ad = x,
+                        AdRequest = newAdRequest
+                    });
+                });
+                    //await _adAdRequestRepository.Create(new AdAdRequest()
+                    //{
+                    //    Ad = entity,
+                    //    AdRequest = newAdRequest
+                    //});
+                
+                listadad.ForEach(x => _adAdRequestRepository.Create(x));
+
+                
+
+                //List<AdAdRequest> list1 = new List<AdAdRequest>();
+                //List<Ad> listAd = new List<Ad>();
+                //List<AdRequest> listAdRequest = new List<AdRequest>();
+                //list.ForEach(x => listAd.Add(x.Ad));
+                //foreach(var ad in listAd)
+                //{
+                //    AdAdRequest adAdRequest = new AdAdRequest();
+                //    adAdRequest.Ad = ad;
+                //    adAdRequest.AdRequest = newAdRequest;
+                //    await _adAdRequestRepository.Create(adAdRequest);
+                //}
+                //list.ForEach(x => x.Ad.Id = new Guid());
+                //list.ForEach(x => _adAdRequestRepository.Create(x));
 
             }
             catch (Exception e)
@@ -71,7 +145,7 @@ namespace RentACar.BLL.Services
         public async Task<object> GetAllAdsByUserId(Guid userId)
         {
             User user = await _userManager.FindByIdAsync(userId.ToString());
-            return _adRepository.Find(x => x.UserId.Equals(userId)).ToList();
+            return await _adRepository.Find(x => x.UserId.Equals(userId));
             
         }
     }

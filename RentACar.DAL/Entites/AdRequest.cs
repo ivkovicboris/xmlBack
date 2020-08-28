@@ -4,14 +4,13 @@ using System.Text;
 
 namespace RentACar.DAL.Entites
 {
-    public class Ad
+    public class AdRequest
     {
         public Guid Id { get; set; }
-        public Guid UserId { get; set; }
-        public Guid CarId { get; set; }
-        public Car Car { get; set; }
-        public int Price { get; set; }
-        public bool Cdw { get; set; }
+        public Guid ClientId { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public RequestStatus Status { get; set; }
         public ICollection<AdAdRequest> AdAdRequests { get; set; }
 
     }

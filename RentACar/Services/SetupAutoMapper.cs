@@ -35,6 +35,10 @@ namespace RentACar.API.Services
             CreateMap<FuelTypePOCO, FuelTypeModel>();
             CreateMap<AdModel, AdPOCO>();
             CreateMap<AdPOCO, AdModel>();
+            CreateMap<AdRequestModel, AdRequestPOCO>();
+            CreateMap<AdRequestPOCO, AdRequestModel>();
+            CreateMap<AdAdRequestModel, AdAdRequestPOCO>();
+            CreateMap<AdAdRequestPOCO, AdAdRequestModel>();
 
             //relation BLL <=> DAL
             CreateMap<RegisterPOCO, User>();
@@ -53,6 +57,10 @@ namespace RentACar.API.Services
             CreateMap<FuelType, FuelTypePOCO>();
             CreateMap<AdPOCO, Ad>();
             CreateMap<Ad, AdPOCO>();
+            CreateMap<AdRequestPOCO, AdRequest>();
+            CreateMap<AdRequest, AdRequestPOCO>();
+            CreateMap<AdAdRequestPOCO, AdAdRequest>();
+            CreateMap<AdAdRequest, AdAdRequestPOCO>();
         }
     }
 }

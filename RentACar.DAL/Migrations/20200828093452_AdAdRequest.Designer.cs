@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentACar.DAL.Context;
 
 namespace RentACar.DAL.Migrations
 {
     [DbContext(typeof(RentContext))]
-    partial class RentContextModelSnapshot : ModelSnapshot
+    [Migration("20200828093452_AdAdRequest")]
+    partial class AdAdRequest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -166,8 +168,6 @@ namespace RentACar.DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<Guid>("ClientId");
 
                     b.Property<DateTime>("EndDate");
 
