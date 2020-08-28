@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar\\RentACar.API.csproj": {}
+    "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar\\RentACar.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {
+    "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj",
+        "projectUniqueName": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj",
         "projectName": "RentACar.BLL",
-        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\obj\\",
+        "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj",
+        "packagesPath": "C:\\Users\\Boris\\.nuget\\packages\\",
+        "outputPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Boris\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
-                "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj"
+              "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
+                "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj"
               }
             }
           }
@@ -76,21 +76,21 @@
         }
       }
     },
-    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
+    "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
+        "projectUniqueName": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
         "projectName": "RentACar.DAL",
-        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\obj\\",
+        "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj",
+        "packagesPath": "C:\\Users\\Boris\\.nuget\\packages\\",
+        "outputPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Boris\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -146,21 +146,21 @@
         }
       }
     },
-    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj": {
+    "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj",
+        "projectUniqueName": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj",
         "projectName": "RentACar.MailService",
-        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.MailServices\\obj\\",
+        "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj",
+        "packagesPath": "C:\\Users\\Boris\\.nuget\\packages\\",
+        "outputPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.MailServices\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Boris\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -174,8 +174,8 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {
-                "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj"
+              "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {
+                "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj"
               }
             }
           }
@@ -210,21 +210,21 @@
         }
       }
     },
-    "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar\\RentACar.API.csproj": {
+    "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar\\RentACar.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar\\RentACar.API.csproj",
+        "projectUniqueName": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar\\RentACar.API.csproj",
         "projectName": "RentACar.API",
-        "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar\\RentACar.API.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar\\obj\\",
+        "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar\\RentACar.API.csproj",
+        "packagesPath": "C:\\Users\\Boris\\.nuget\\packages\\",
+        "outputPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Boris\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -238,14 +238,14 @@
         "frameworks": {
           "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {
-                "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj"
+              "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj": {
+                "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.BLL\\RentACar.BLL.csproj"
               },
-              "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
-                "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj"
+              "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj": {
+                "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.DAL\\RentACar.DAL.csproj"
               },
-              "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj": {
-                "projectPath": "C:\\Users\\Asus\\Documents\\GitHub\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj"
+              "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj": {
+                "projectPath": "D:\\FAKS\\XML I WEB servisi\\2020\\xmlBack\\RentACar.MailServices\\RentACar.MailService.csproj"
               }
             }
           }

@@ -338,3 +338,21 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+RentACar/obj/RentACar.API.csproj.nuget.cache
+RentACar.BLL/obj/project.assets.json
+RentACar.BLL/obj/RentACar.BLL.csproj.nuget.cache
+RentACar.BLL/obj/RentACar.BLL.csproj.nuget.dgspec.json
+RentACar.BLL/obj/RentACar.BLL.csproj.nuget.g.props
+RentACar.BLL/obj/RentACar.BLL.csproj.nuget.g.targets
+RentACar.DAL/obj/project.assets.json
+RentACar.DAL/obj/RentACar.DAL.csproj.nuget.cache
+RentACar.DAL/obj/RentACar.DAL.csproj.nuget.dgspec.json
+RentACar.DAL/obj/RentACar.DAL.csproj.nuget.g.props
+RentACar.DAL/obj/RentACar.DAL.csproj.nuget.g.targets
+RentACar/obj/Debug/netcoreapp2.2/RentACar.API.assets.cache
+RentACar/obj/Debug/netcoreapp2.2/RentACar.API.csprojAssemblyReference.cache
+RentACar/obj/project.assets.json
+RentACar/obj/RentACar.API.csproj.nuget.cache
+RentACar/obj/RentACar.API.csproj.nuget.dgspec.json
+RentACar/obj/RentACar.API.csproj.nuget.g.props
+RentACar/obj/RentACar.API.csproj.nuget.g.targets
