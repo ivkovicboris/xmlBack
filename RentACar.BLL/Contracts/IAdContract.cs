@@ -13,5 +13,6 @@ namespace RentACar.BLL.Contracts
         Task<bool> AddAd(AdPOCO adPOCO);
         Task<object> GetAllAdsByUserId(Guid guid);
         Task<bool> AddAdRequest(AdRequestPOCO adRequestPOCO);
+        Task<object> GetAllAdRequests();
     }
 }

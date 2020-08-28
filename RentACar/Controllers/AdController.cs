@@ -68,6 +68,11 @@ namespace RentACar.API.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllAdRequests")]
+        public async Task<object> GetAllAdRequests() => await _adContract.GetAllAdRequests();
+
+
+        [HttpGet]
         [Route("GetAllAdsByUserId/{userId}")]
         public async Task<object> GetAllAdsByUserId([FromRoute] string userId)
         {

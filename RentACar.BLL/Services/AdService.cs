@@ -23,6 +23,7 @@ namespace RentACar.BLL.Services
         private readonly IRepository<AdRequest> _adRequestRepository;
         private readonly IRepository<AdAdRequest> _adAdRequestRepository;
         private readonly DbSet<Car> _cars;
+        private readonly DbSet<AdAdRequest> _adAdRequests;
         private readonly RentContext _context;
 
 
@@ -42,7 +43,9 @@ namespace RentACar.BLL.Services
             _context = context;
             _ads = _context.Ads;
             _cars = _context.Cars;
-            
+            _adAdRequests = _context.AdAdRequests;
+
+
         }
 
         public async Task<bool> AddAd(AdPOCO adPOCO)
@@ -67,6 +70,7 @@ namespace RentACar.BLL.Services
             {
                 // add addrequest
                 adRequestPOCO.Id = Guid.NewGuid();
+                //adRequestPOCO.Status = RequestStatus.Requested;
                 AdRequest newAdRequest = _mapper.Map<AdRequestPOCO, AdRequest>(adRequestPOCO);
                 newAdRequest.AdAdRequests = null;
                 await _adRequestRepository.Create(newAdRequest);
@@ -129,11 +133,29 @@ namespace RentACar.BLL.Services
             return true;
         }
 
+        public async Task<object> GetAllAdRequests()
+        {
+            var adRequests = await _adRequestRepository.Find(x => x.Status.Equals(RequestStatus.Requested));
+            List<AdRequest> adReq = adRequests.ToList();
+            List<AdAdRequest> adAdRequests = new List<AdAdRequest>();
+            foreach (var a in adReq)
+            {
+                adAdRequests = await _adAdRequests.Where(x => x.AdRequestId.Equals(a.Id)).
+                    Include(y => y.Ad).
+                    Include(z => z.AdRequest).
+                    Include(r => r.Ad.Car).
+                    Include(k => k.Ad.Car.Fuel).
+                    Include(s => s.Ad.Car.Model).
+                    Include(o => o.Ad.Car.Model.CarBrand).ToListAsync();
+            }
+            return adAdRequests;
+        }
+
         public async Task<object> GetAllAds()
         {
             try
             {
-                List<Ad> result = await _ads.Include(x => x.Car).Include(y => y.Car.Fuel).Include(z => z.Car.Model).Include(r => r.Car.Model.CarBrend).ToListAsync();
+                List<Ad> result = await _ads.Include(x => x.Car).Include(y => y.Car.Fuel).Include(z => z.Car.Model).Include(r => r.Car.Model.CarBrand).ToListAsync();
                 return result;
             }
             catch (Exception e)
