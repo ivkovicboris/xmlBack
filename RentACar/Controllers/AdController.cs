@@ -62,5 +62,10 @@ namespace RentACar.API.Controllers
             return await _adContract.GetAllAdsByUserId(Guid.Parse(userId));
         }
 
+        [HttpGet]
+        [Route("GetFreeAdsByDate/startDate/endDate")]
+        public async Task<object> GetFreeAdsByDate([FromRoute] DateTime startDate, DateTime endDate) => await _adContract.GetFreeAdsByDate(startDate, endDate);
+
+
     }
 }

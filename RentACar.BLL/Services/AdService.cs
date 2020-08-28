@@ -55,7 +55,7 @@ namespace RentACar.BLL.Services
             return true;
         }
 
-        public async Task<object> GetAllAds()
+        public async Task<List<Ad>> GetAllAds()
         {
             try
             {
@@ -73,6 +73,40 @@ namespace RentACar.BLL.Services
             User user = await _userManager.FindByIdAsync(userId.ToString());
             return _adRepository.Find(x => x.UserId.Equals(userId)).ToList();
             
+        }
+
+
+        public async Task<object> GetFreeAdsByDate(DateTime startDate, DateTime endDate)
+        {
+            List<Ad> result = await GetAllAds();
+            
+        NEXT_AD:
+            foreach (Ad ad in result)
+            {
+                foreach (AdAdRequest adadRequest in _adAdRequestRepository.Find(x => x.AdId.Equals(ad.Id)).ToList())
+                {
+                    foreach (AdRequest adRequest in _adRequestRepository.Find(adreq => adreq.Id.Equals(adadRequest.Id)).ToList())
+                    {
+                        if (adRequest.Status.Equals(Accepted))
+                        {
+                            if ((startDate < adRequest.StartDate && endDate > adRequest.EndDate) ||
+                               (isDateBetweenTwoDates(startDate, adRequest.StartDate, adRequest.EndDate) || isDateBetweenTwoDates(endDate, adRequest.StartDate, adRequest.EndDate)))
+                            {
+                                result.Remove(ad);
+                                goto NEXT_AD;
+                            }
+                        }
+                    }
+                    result.Add(ad);
+
+                }
+            }
+            return result;
+        }
+
+        public static bool isDateBetweenTwoDates(this DateTime date, DateTime start, DateTime end)
+        {
+            return date >= start && date <= end;
         }
     }
 }
