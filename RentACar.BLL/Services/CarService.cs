@@ -139,7 +139,7 @@ namespace RentACar.BLL.Services
         {
             try
             {
-                List<Car> result = await _cars.Include(x => x.Model).Include(y => y.Fuel).Include(z => z.Model.CarBrend).ToListAsync();
+                List<Car> result = await _cars.Include(x => x.Model).Include(y => y.Fuel).Include(z => z.Model.CarBrand).ToListAsync();
                 //result.ForEach(x => x.Model.CarBrend.ModelsOfBrand = null);
 
                 return result;
@@ -154,7 +154,7 @@ namespace RentACar.BLL.Services
         {
             try
             {
-                List<ModelOfCar> result = await _models.Include(x => x.CarBrend).ToListAsync();
+                List<ModelOfCar> result = await _models.Include(x => x.CarBrand).ToListAsync();
                 return result;
             }
             catch (Exception e)

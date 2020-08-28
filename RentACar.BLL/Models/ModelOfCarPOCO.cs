@@ -8,7 +8,7 @@ namespace RentACar.BLL.Models
     {
         public Guid Id { get; set; }
         public Guid CarBrandId { get; set; }
-        public CarBrandPOCO CarBrend { get; set; }
+        public CarBrandPOCO CarBrand { get; set; }
         public string Name { get; set; }
     }
 }

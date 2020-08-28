@@ -9,7 +9,7 @@ namespace RentACar.API.Models
     {
         public Guid Id { get; set; }
         public Guid CarBrandId { get; set; }
-        public CarBrandModel CarBrend { get; set; }
+        public CarBrandModel CarBrand { get; set; }
         public string Name { get; set; }
     }
 }
