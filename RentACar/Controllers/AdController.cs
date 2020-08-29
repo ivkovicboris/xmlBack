@@ -67,9 +67,49 @@ namespace RentACar.API.Controllers
             return false;
         }
 
+        [HttpPost]
+        [Route("BookAdByAdmin")]
+        public async Task<bool> BookAdByAdmin([FromBody] AdRequestModel adRequest)
+        {
+            var result = await _adContract.BookAdByAdmin(_mapper.Map<AdRequestModel, AdRequestPOCO>(adRequest));
+            if (result)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        [HttpPost]
+        [Route("AcceptAdRequest")]
+        public async Task<bool> AcceptAdRequest([FromBody] AdAdRequestModel adAdRequest)
+        {
+            var result = await _adContract.AcceptAdRequest(_mapper.Map<AdAdRequestModel, AdAdRequestPOCO>(adAdRequest));
+            if (result)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        [HttpPost]
+        [Route("FinishRent")]
+        public async Task<bool> FinishRent([FromBody] AdAdRequestModel adAdRequest)
+        {
+            var result = await _adContract.FinishRent(_mapper.Map<AdAdRequestModel, AdAdRequestPOCO>(adAdRequest));
+            if (result)
+            {
+                return true;
+            }
+            return false;
+        }
+
         [HttpGet]
         [Route("GetAllAdRequests")]
         public async Task<object> GetAllAdRequests() => await _adContract.GetAllAdRequests();
+
+        [HttpGet]
+        [Route("GetAllAdAccepted")]
+        public async Task<object> GetAllAdAccepted() => await _adContract.GetAllAdAccepted();
 
 
         [HttpGet]

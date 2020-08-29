@@ -48,6 +48,36 @@ namespace RentACar.BLL.Services
 
         }
 
+        public async Task<bool> AcceptAdRequest(AdAdRequestPOCO adAdRequestPOCO)
+        {
+            var adRequests = await _adRequestRepository.Find(x => x.Id.Equals(adAdRequestPOCO.AdRequestId));
+            var adRequest = adRequests.FirstOrDefault();
+            adRequest.Status = RequestStatus.Accepted;
+            await _adRequestRepository.Update(adRequest);
+            ///////////////////////////////////////////
+            var w = adAdRequestPOCO.AdRequest;
+            var z = await _adAdRequestRepository.Find(q => q.AdRequest.Equals(w));
+            var listofadaddrequestfordelete = z.ToList();
+            foreach (var adad in listofadaddrequestfordelete)
+            {
+                var a = await _adRepository.Find(y => y.Id.Equals(adad.AdId));
+                var b = await _adAdRequestRepository.Find(x => x.Ad.Equals(a.FirstOrDefault()));
+                List<Guid> aar = new List<Guid>();
+                foreach (var d in b) // d ima sve sem adRequsta
+                {
+                    aar.Add(d.AdRequestId);
+                }
+                foreach (var c in aar)
+                {
+                    var ar = await _adRequestRepository.Find(x => x.Id.Equals(c) && x.Status == RequestStatus.Requested);
+                    await _adRequestRepository.Delete(ar.FirstOrDefault());
+                }
+
+            }
+
+            return true;
+        }
+
         public async Task<bool> AddAd(AdPOCO adPOCO)
         {
             try
@@ -131,6 +161,91 @@ namespace RentACar.BLL.Services
                 throw e;
             }
             return true;
+        }
+
+        public async Task<bool> BookAdByAdmin(AdRequestPOCO adRequestPOCO)
+        {
+            try
+            {
+                var listofadaddrequestfordelete = adRequestPOCO.AdAdRequests.ToList();
+                foreach (var adad in listofadaddrequestfordelete)
+                {
+                    var a = await _adRepository.Find(y => y.Id.Equals(adad.AdId));
+                    var b = await _adAdRequestRepository.Find(x => x.Ad.Equals(a.FirstOrDefault()));
+                    List<Guid> aar = new List<Guid>();
+                    foreach( var d in b) // d ima sve sem adRequsta
+                    {
+                        aar.Add(d.AdRequestId);
+                    }
+                    foreach(var c in aar)
+                    {
+                        var ar = await _adRequestRepository.Find(x => x.Id.Equals(c) && x.Status==RequestStatus.Requested);
+                        await _adRequestRepository.Delete(ar.FirstOrDefault());
+                    }
+
+                }
+                adRequestPOCO.Id = Guid.NewGuid();
+                adRequestPOCO.Status = RequestStatus.Accepted;
+                AdRequest newAdRequest = _mapper.Map<AdRequestPOCO, AdRequest>(adRequestPOCO);
+                newAdRequest.AdAdRequests = null;
+                await _adRequestRepository.Create(newAdRequest);
+
+                var listadad = new List<AdAdRequest>();
+                var listofAds = new List<Ad>();
+
+                var listofadaddrequest = adRequestPOCO.AdAdRequests.ToList();
+                foreach (var adad in listofadaddrequest)
+                {
+                    var a = await _adRepository.Find(y => y.Id.Equals(adad.AdId));
+                    a.FirstOrDefault();
+                    listofAds.Add(a.FirstOrDefault());
+
+                }
+
+                listofAds.ForEach(x =>
+                {
+                    listadad.Add(new AdAdRequest()
+                    {
+                        Ad = x,
+                        AdRequest = newAdRequest
+                    });
+                });
+
+                listadad.ForEach(x => _adAdRequestRepository.Create(x));
+
+                
+
+                }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return true;
+        }
+
+        public async Task<bool> FinishRent(AdAdRequestPOCO adAdRequestPOCO)
+        {
+            var ar = await _adRequestRepository.Find(x => x.Id.Equals(adAdRequestPOCO.AdRequestId));
+            ar.FirstOrDefault().Status = RequestStatus.Finished;
+            return await _adRequestRepository.Update(ar.FirstOrDefault());
+        }
+
+        public async Task<object> GetAllAdAccepted()
+        {
+            var adRequests = await _adRequestRepository.Find(x => x.Status.Equals(RequestStatus.Accepted));
+            List<AdRequest> adReq = adRequests.ToList();
+            List<AdAdRequest> adAdRequests = new List<AdAdRequest>();
+            foreach (var a in adReq)
+            {
+                adAdRequests = await _adAdRequests.Where(x => x.AdRequestId.Equals(a.Id)).
+                    Include(y => y.Ad).
+                    Include(z => z.AdRequest).
+                    Include(r => r.Ad.Car).
+                    Include(k => k.Ad.Car.Fuel).
+                    Include(s => s.Ad.Car.Model).
+                    Include(o => o.Ad.Car.Model.CarBrand).ToListAsync();
+            }
+            return adAdRequests;
         }
 
         public async Task<object> GetAllAdRequests()
