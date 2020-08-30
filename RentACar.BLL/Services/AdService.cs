@@ -267,7 +267,7 @@ namespace RentACar.BLL.Services
         }
 
         public async Task<object> GetAllAds()
-        {
+        { 
             try
             {
                 List<Ad> result = await _ads.Include(x => x.Car).Include(y => y.Car.Fuel).Include(z => z.Car.Model).Include(r => r.Car.Model.CarBrand).ToListAsync();
@@ -276,6 +276,50 @@ namespace RentACar.BLL.Services
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public async Task<object> GetFreeAdsByDate(DateTime startDate, DateTime endDate)
+        {
+            List<Ad> result = await _ads.Include(x => x.Car).Include(y => y.Car.Fuel).Include(z => z.Car.Model).Include(r => r.Car.Model.CarBrand).ToListAsync();
+            NEXT_AD:
+            foreach (Ad ad in result)
+            {
+                List<AdAdRequest> adAdRequests = new List<AdAdRequest>();
+                var a = await _adAdRequestRepository.Find(x => x.AdId.Equals(ad.Id));
+                adAdRequests = a.ToList();
+                foreach (AdAdRequest adadRequest in adAdRequests)
+                {
+                    List<AdRequest> adRequests = new List<AdRequest>();
+                    var b = await _adRequestRepository.Find(adreq => adreq.Id.Equals(adadRequest.AdRequestId));
+                    adRequests = b.ToList();
+                    foreach (AdRequest adRequest in adRequests)
+                    {
+                        if (adRequest.Status == RequestStatus.Accepted)
+                        {
+                            if ((startDate < adRequest.StartDate && endDate > adRequest.EndDate) ||
+                               (isDateBetweenTwoDates(startDate, adRequest.StartDate, adRequest.EndDate) || isDateBetweenTwoDates(endDate, adRequest.StartDate, adRequest.EndDate)))
+                            {
+                                result.Remove(ad);
+                                goto NEXT_AD;
+                            }
+                        }
+                    }
+                    //result.Add(ad);
+                }
+            }
+            return result;
+        }
+
+        private bool isDateBetweenTwoDates(DateTime date, DateTime startDate, DateTime endDate)
+        {
+           if( date > startDate && date< endDate)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

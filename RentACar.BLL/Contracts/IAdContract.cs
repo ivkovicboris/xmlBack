@@ -18,5 +18,6 @@ namespace RentACar.BLL.Contracts
         Task<bool> BookAdByAdmin(AdRequestPOCO adRequestPOCO);
         Task<object> GetAllAdAccepted();
         Task<bool> FinishRent(AdAdRequestPOCO adAdRequestPOCO);
+        Task<object> GetFreeAdsByDate(DateTime startDate, DateTime endDate);
     }
 }
