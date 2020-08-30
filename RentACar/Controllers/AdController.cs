@@ -103,6 +103,14 @@ namespace RentACar.API.Controllers
             return false;
         }
 
+        [HttpPost]
+        [Route("GetFreeAdsByDate")]
+        public async Task<object> GetFreeAdsByDate([FromBody] DateRange dateRange)
+        {
+            var result = await _adContract.GetFreeAdsByDate(dateRange.StartDate, dateRange.EndDate);
+            return result;
+        }
+
         [HttpGet]
         [Route("GetAllAdRequests")]
         public async Task<object> GetAllAdRequests() => await _adContract.GetAllAdRequests();
