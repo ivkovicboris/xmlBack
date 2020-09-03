@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+*.json
+*.cache
+*.props
+*.targets
+RentACar/obj/Debug/netcoreapp2.2/RentACar.API.assets.cache
+*.cache
