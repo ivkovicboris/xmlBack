@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -12,12 +13,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using RentACar.API.SOAP.DataModels;
 using RentACar.BLL.Contracts;
 using RentACar.BLL.Services;
 using RentACar.DAL.Context;
 using RentACar.DAL.Entites;
 using RentACar.DAL.Repositories;
 using RentACar.DAL.Repositories.Abstract;
+using SoapCore;
 
 namespace RentACar
 {
@@ -75,6 +78,7 @@ namespace RentACar
             services.AddScoped<IRepository<Ad>, Repository<Ad>>();
             services.AddScoped<IRepository<AdRequest>, Repository<AdRequest>>();
             services.AddScoped<IRepository<AdAdRequest>, Repository<AdAdRequest>>();
+            services.AddSingleton<ITestContract, TestContract>();
 
             services.AddCors();
             services.AddMvc().AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore);
@@ -90,6 +94,7 @@ namespace RentACar
             }
             app.UseAuthentication();
             app.UseStaticFiles();
+            app.UseSoapEndpoint<ITestContract>("/TestContract.svc", new BasicHttpBinding(), SoapSerializer.XmlSerializer);
 
             app.UseCors(builder => builder
                     .AllowAnyOrigin()
